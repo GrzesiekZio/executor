@@ -7,15 +7,17 @@
     "preparation": [],
     "execution": [
         {
-            "name": "New Step1",
+            "name": "Step1",
             "type": "Execute",
             "filepath": "test_steps.py",
-            "function": "",
-            "is_unittest": true,
+            "function": "set_power",
+            "is_unittest": false,
             "class_name": "",
             "operator": "==",
             "expected_result": "",
-            "args": {}
+            "args": {
+                "state": "$(POWER_STATE)"
+            }
         }
     ],
     "cleanup": []
