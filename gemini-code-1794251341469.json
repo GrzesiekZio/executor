@@ -1,0 +1,44 @@
+{
+    "name": "Full Hardware Integration Test",
+    "variables": {
+        "TARGET_VOLTAGE": 12.0,
+        "POWER_STATE": "ON"
+    },
+    "preparation": [
+        {
+            "name": "Initialize Power Supply",
+            "type": "Execute",
+            "filepath": "test_steps.py",
+            "function": "set_power",
+            "args": { "state": "${POWER_STATE}" }
+        }
+    ],
+    "execution": [
+        {
+            "name": "Measure Bus Voltage",
+            "type": "Test",
+            "filepath": "test_steps.py",
+            "function": "read_voltage",
+            "args": { "target_channel": "CH1" },
+            "operator": "==",
+            "expected_result": 12.0
+        },
+        {
+            "name": "Run Python Unittest Testcase",
+            "type": "Test",
+            "filepath": "test_steps.py",
+            "is_unittest": true,
+            "class_name": "SystemHardwareTests",
+            "function": "test_subtraction"
+        }
+    ],
+    "cleanup": [
+        {
+            "name": "Power Off Device",
+            "type": "Execute",
+            "filepath": "test_steps.py",
+            "function": "set_power",
+            "args": { "state": "OFF" }
+        }
+    ]
+}

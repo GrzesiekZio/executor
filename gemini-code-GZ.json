@@ -1,0 +1,22 @@
+{
+    "name": "New Sequence",
+    "variables": {
+        "VOLTAGE_LIMIT": 12.5,
+        "TIMEOUT_SEC": 5
+    },
+    "preparation": [],
+    "execution": [
+        {
+            "name": "New Step1",
+            "type": "Execute",
+            "filepath": "test_steps.py",
+            "function": "",
+            "is_unittest": true,
+            "class_name": "",
+            "operator": "==",
+            "expected_result": "",
+            "args": {}
+        }
+    ],
+    "cleanup": []
+}
