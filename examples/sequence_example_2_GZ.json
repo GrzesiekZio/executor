@@ -18,6 +18,19 @@
             "args": {
                 "state": "$(POWER_STATE)"
             }
+        },
+        {
+            "name": "read voltage",
+            "type": "Test",
+            "filepath": "test_steps.py",
+            "function": "read_voltage",
+            "is_unittest": false,
+            "class_name": "",
+            "operator": "==",
+            "expected_result": "11",
+            "args": {
+                "target_channel": "ch1"
+            }
         }
     ],
     "cleanup": []

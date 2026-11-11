@@ -10,7 +10,9 @@
             "type": "Execute",
             "filepath": "test_steps.py",
             "function": "set_power",
-            "args": { "state": "${POWER_STATE}" }
+            "args": {
+                "state": "${POWER_STATE}"
+            }
         }
     ],
     "execution": [
@@ -19,7 +21,9 @@
             "type": "Test",
             "filepath": "test_steps.py",
             "function": "read_voltage",
-            "args": { "target_channel": "CH1" },
+            "args": {
+                "target_channel": "CH1"
+            },
             "operator": "==",
             "expected_result": 12.0
         },
@@ -30,6 +34,17 @@
             "is_unittest": true,
             "class_name": "SystemHardwareTests",
             "function": "test_subtraction"
+        },
+        {
+            "name": "New Step",
+            "type": "SubSequence",
+            "filepath": "sequence_example_2_GZ.json",
+            "function": "",
+            "is_unittest": false,
+            "class_name": "",
+            "operator": "==",
+            "expected_result": "",
+            "args": {}
         }
     ],
     "cleanup": [
@@ -38,7 +53,9 @@
             "type": "Execute",
             "filepath": "test_steps.py",
             "function": "set_power",
-            "args": { "state": "OFF" }
+            "args": {
+                "state": "OFF"
+            }
         }
     ]
 }
