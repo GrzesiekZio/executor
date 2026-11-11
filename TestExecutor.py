@@ -159,7 +159,8 @@ class TestExecutor:
 
     # --- Edycja Sekwencji (Add / Edit / Delete) ---
     def add_step(self):
-        dialog = sed.StepEditorDialog(self.root)
+        base_dir = os.path.dirname(self.current_sequence_path) if self.current_sequence_path else "."
+        dialog = sed.StepEditorDialog(self.root, base_dir=base_dir)
         self.root.wait_window(dialog)
         if dialog.result:
             sec = dialog.section
@@ -185,7 +186,8 @@ class TestExecutor:
         idx = int(idx_str)
         step_data = self.sequence_data[sec][idx]
 
-        dialog = sed.StepEditorDialog(self.root, step_data=step_data, default_section=sec)
+        base_dir = os.path.dirname(self.current_sequence_path) if self.current_sequence_path else "."
+        dialog = sed.StepEditorDialog(self.root, step_data=step_data, default_section=sec,base_dir=base_dir)
         self.root.wait_window(dialog)
         if dialog.result:
             # Jeśli sekcja została zmieniona
