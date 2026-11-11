@@ -21,11 +21,13 @@
             "type": "Test",
             "filepath": "test_steps.py",
             "function": "read_voltage",
+            "is_unittest": false,
+            "class_name": "",
+            "operator": "==",
+            "expected_result": "${TARGET_VOLTAGE}",
             "args": {
                 "target_channel": "CH1"
-            },
-            "operator": "==",
-            "expected_result": 12.0
+            }
         },
         {
             "name": "Run Python Unittest Testcase",

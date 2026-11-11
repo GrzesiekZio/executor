@@ -137,12 +137,13 @@ class SequenceRunner:
                 return {"name": step_name, "type": step_type, "status": "Done", "details": f"Returned: {actual_result}"}
 
             elif step_type == "Test":
-                expected = step.get("expected_result")
+                raw_expected = step.get("expected_result")
+                expected = self.resolve_arg(raw_expected)
                 operator = step.get("operator", "==")
 
                 # Próba konwersji typu oczekiwanego, jeśli to możliwe
                 try:
-                    if isinstance(actual_result, (int, float)):
+                    if isinstance(actual_result, (int, float)) and not isinstance(expected, (int, float)):
                         expected = type(actual_result)(expected)
                 except ValueError:
                     pass
